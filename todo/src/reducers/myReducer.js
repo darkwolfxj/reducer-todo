@@ -1,20 +1,30 @@
-const initState = [{
-    item: "Learn about reducers",
-    completed: false,
-    id: 3892987589
-}]
+const initState = {
+    todos: [{     
+        item: "Learn about reducers",
+        completed: true,
+        id: 3892987589 
+    },
+    { 
+        item: "test",
+        completed: false,
+        id: 123   
+    }]
+}
 
 const reducer = (state, action) => {
     switch (action.type) {
         case "ADD_TODO":
-            let todo = action.todo;
-            return [...state, todo];
+            console.log("add todo action and state:", action, state)
+            return { todos: [...state.todos, action.todo] }
         case "TOGGLE_COMPLETED":
-            return state.map(i => i.id===action.id ? { ...i, completed: !i.completed } : i)
+            console.log("toggle completed action and state:", action, state)
+            return { todos: state.todos.map(i => i.id===action.id ? { ...i, completed: !i.completed } : i) }
         case "CLEAR_COMPLETED":
-            return state.filter(i => i.completed !== false)
+            console.log("clear completed action and state:", action, state)
+            return { todos: state.todos.filter(i => i.completed !== true) }
         default: 
-            return state;
+            console.log(state)
+            return state
     }
 }
 
