@@ -20,7 +20,7 @@ export default function TodoList() {
             <form onSubmit={ handleSubmit }>
             <div className="input-field">
                 <input type="text" id="todo-input" value={ input } onChange={ handleChanges }/>
-                git <label htmlFor="todo-input" className="greyed-text label">New Todo</label>
+                <label htmlFor="todo-input" className="greyed-text label">New Todo</label>
             </div>
             </form>
             <button onClick={ e => dispatch({ type: "CLEAR_COMPLETED" }) } className="waves-effect waves-light btn">Clear Completed</button>
